@@ -3,10 +3,6 @@ from ..models.authorized_users import db, AuthorizedUsers
 
 authorized_users_blueprint = Blueprint('authorized_users', __name__)
 
-# @authorized_users_blueprint.route('/authorized_users', methods=['GET'])
-# def hello():
-#     return "Hello World!"
-
 @authorized_users_blueprint.route('/authorized_users', methods=['POST'])
 def add_authorized_user():
     data = request.get_json()
