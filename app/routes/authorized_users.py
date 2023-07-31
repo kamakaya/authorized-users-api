@@ -38,7 +38,7 @@ def get_authorized_users():
 def get_one_authorized_user(id):
     authorized_user = AuthorizedUsers.query.get(id)
     if not authorized_user:
-        return jsonify({"message": "No authorized_user found!"})
+        return jsonify({"message": "No Authorized User found!"})
     authorized_user_data = {}
     authorized_user_data['id'] = authorized_user.id
     authorized_user_data['user_name'] = authorized_user.user_name
@@ -58,13 +58,13 @@ def update_authorized_user(id):
     authorized_user.manager_name = data['manager_name']
     authorized_user.project_name = data['project_name']
     db.session.commit()
-    return jsonify({"message": "authorized_user updated!"})
+    return jsonify({"message": "Authorized User updated!"})
 
 @authorized_users_blueprint.route('/authorized_users/<id>', methods=['DELETE'])
 def delete_authorized_user(id):
     authorized_user = AuthorizedUsers.query.get(id)
     if not authorized_user:
-        return jsonify({"message": "No authorized_user found!"})
+        return jsonify({"message": "No Authorized User found!"})
     db.session.delete(authorized_user)
     db.session.commit()
-    return jsonify({"message": "authorized_user deleted!"})
+    return jsonify({"message": "Authorized User deleted!"})
